@@ -1,4 +1,5 @@
 import Animes from './Components/Animes';
+import CreateAnime from './Components/CreateAnime';
 import ListFavoritos from './Components/ListFavoritos';
 import ListFavorito from './Components/ListFavoritos';
 import Navegacion from './Components/Navegacion';
@@ -21,6 +22,11 @@ function addAnimeFavorites(element){
     }
   }
 }
+function newAnime(element){
+  let templistAnime = [...listAnimes];
+  templistAnime.push(element);
+  setlistAnimes(templistAnime);
+}
 //funcion para eliminar un elemento marcado como favorito//
  const [listAnimes, setlistAnimes] =useState(dataAnime);
  const [listAnimesFavoritos,setlistAnimesFavoritos] = useState([]);
@@ -39,6 +45,7 @@ function addAnimeFavorites(element){
           fnAddfavorites={addAnimeFavorites} />
           </div>
           <div className='col-md-3'>
+          <CreateAnime fnNewAnime={newAnime} />
             
           <ListFavoritos elements={listAnimesFavoritos} onRemoveFavorite={handleRemoveFavorite} />
           </div>

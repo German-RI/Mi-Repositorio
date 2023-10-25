@@ -2,6 +2,14 @@ import { useState } from 'react';
 import '../index.css'
 
 function Animes(props){
+    const cardImgStyle = {
+        width: '100%',     // Ajusta el ancho al 100% del contenedor
+        height: 'auto',    // Mantiene la proporción original
+      };
+    
+      const cardStyle = {
+        height: '95%',    // Establece una altura fija para las tarjetas
+      };
 
     const [verMas, setVerMas] = useState(false);
     let sectionVerMas = <button 
@@ -23,7 +31,7 @@ function Animes(props){
 
     return(
         <div className="col-md-4">
-            <div className="card mb-3 bgcard">
+            <div className="card mb-3 bgcard " style={cardStyle}>
                 <img src={props.value.Poster} className="card-img-top" alt="..."/>
                 <div className="card-body text-light">
                     <h5 className="card-title">{props.value.Title}</h5>
